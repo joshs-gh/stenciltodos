@@ -9,6 +9,9 @@ export namespace Components {
     interface NewTodo {
         "defaultText": string;
     }
+    interface TodoItem {
+        "todoText": string;
+    }
 }
 declare global {
     interface HTMLNewTodoElement extends Components.NewTodo, HTMLStencilElement {
@@ -17,8 +20,15 @@ declare global {
         prototype: HTMLNewTodoElement;
         new (): HTMLNewTodoElement;
     };
+    interface HTMLTodoItemElement extends Components.TodoItem, HTMLStencilElement {
+    }
+    var HTMLTodoItemElement: {
+        prototype: HTMLTodoItemElement;
+        new (): HTMLTodoItemElement;
+    };
     interface HTMLElementTagNameMap {
         "new-todo": HTMLNewTodoElement;
+        "todo-item": HTMLTodoItemElement;
     }
 }
 declare namespace LocalJSX {
@@ -26,8 +36,12 @@ declare namespace LocalJSX {
         "defaultText"?: string;
         "onNewTodo"?: (event: CustomEvent<String>) => void;
     }
+    interface TodoItem {
+        "todoText"?: string;
+    }
     interface IntrinsicElements {
         "new-todo": NewTodo;
+        "todo-item": TodoItem;
     }
 }
 export { LocalJSX as JSX };
@@ -35,6 +49,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "new-todo": LocalJSX.NewTodo & JSXBase.HTMLAttributes<HTMLNewTodoElement>;
+            "todo-item": LocalJSX.TodoItem & JSXBase.HTMLAttributes<HTMLTodoItemElement>;
         }
     }
 }

@@ -1,4 +1,4 @@
-import { B as BUILD, c as consoleDevInfo, p as plt, w as win, H, d as doc, N as NAMESPACE, a as promiseResolve, b as bootstrapLazy } from './index-a050473d.js';
+import { B as BUILD, c as consoleDevInfo, p as plt, w as win, H, d as doc, N as NAMESPACE, a as promiseResolve, b as bootstrapLazy } from './index-9459d2ab.js';
 import { g as globalScripts } from './app-globals-0f993ce5.js';
 
 /*
@@ -118,5 +118,5 @@ const patchCloneNodeFix = (HTMLElementPrototype) => {
 
 patchBrowser().then(options => {
   globalScripts();
-  return bootstrapLazy([["new-todo",[[1,"new-todo",{"defaultText":[1,"default-text"],"todo":[32]}]]]], options);
+  return bootstrapLazy([["new-todo",[[1,"new-todo",{"defaultText":[1,"default-text"],"todo":[32]}]]],["todo-item",[[1,"todo-item",{"todoText":[1,"todo-text"],"checked":[32]}]]]], options);
 });
