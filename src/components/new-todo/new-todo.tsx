@@ -9,11 +9,13 @@ export class NewTodo {
 
   @Prop() defaultText: string;
   @State() todo: string; 
+  textInput!: HTMLInputElement;
 
   private inputChanged = (event: Event) => {
     console.log('input changed: ', (event.target as HTMLInputElement).value);
     this.todo = (event.target as HTMLInputElement).value;
     this.newTodoHandler(this.todo)
+    this.textInput.value = ""
   }
 
   @Event({
@@ -31,7 +33,7 @@ export class NewTodo {
   render() {
     return (
       <div>
-        <input type="text" placeholder={this.defaultText} onChange={this.inputChanged}></input>
+        <input type="text" placeholder={this.defaultText} onChange={this.inputChanged} ref={(el) => this.textInput = el as HTMLInputElement}></input>
       </div>
     );
   }

@@ -37,6 +37,7 @@ declare namespace LocalJSX {
         "onNewTodo"?: (event: CustomEvent<String>) => void;
     }
     interface TodoItem {
+        "onDelClicked"?: (event: CustomEvent<MouseEvent>) => void;
         "todoText"?: string;
     }
     interface IntrinsicElements {

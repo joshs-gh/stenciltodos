@@ -1,4 +1,4 @@
-import { r as registerInstance, e as createEvent, h } from './index-9459d2ab.js';
+import { r as registerInstance, e as createEvent, h } from './index-82f68bd2.js';
 
 const newTodoCss = ":host{display:block}input{padding:16px 16px 16px 60px;border:none;background:rgba(0, 0, 0, 0.003);box-shadow:inset 0 -2px 1px rgba(0,0,0,0.03);position:relative;margin:0;width:50%;font-size:24px;font-family:inherit;font-weight:inherit;line-height:1.4em;border:0;color:inherit;padding:6px;border:1px solid #999;box-shadow:inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);box-sizing:border-box;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}";
 
@@ -10,6 +10,7 @@ const NewTodo = class {
       console.log('input changed: ', event.target.value);
       this.todo = event.target.value;
       this.newTodoHandler(this.todo);
+      this.textInput.value = "";
     };
   }
   newTodoHandler(todo) {
@@ -17,7 +18,7 @@ const NewTodo = class {
     this.newTodo.emit(todo);
   }
   render() {
-    return (h("div", null, h("input", { type: "text", placeholder: this.defaultText, onChange: this.inputChanged })));
+    return (h("div", null, h("input", { type: "text", placeholder: this.defaultText, onChange: this.inputChanged, ref: (el) => this.textInput = el })));
   }
 };
 NewTodo.style = newTodoCss;
