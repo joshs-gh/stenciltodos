@@ -7,7 +7,7 @@ import { Component, h, Prop, State, Event, EventEmitter  } from '@stencil/core';
 })
 export class NewTodo {
 
-  @Prop() defaulttext: string;
+  @Prop() defaultText: string;
   @State() todo: string; 
 
   private inputChanged = (event: Event) => {
@@ -31,7 +31,7 @@ export class NewTodo {
   render() {
     return (
       <div>
-        <input type="text" placeholder={this.defaulttext} onChange={this.inputChanged}></input>
+        <input type="text" placeholder={this.defaultText} onChange={this.inputChanged}></input>
       </div>
     );
   }

@@ -118,5 +118,5 @@ const patchCloneNodeFix = (HTMLElementPrototype) => {
 
 patchBrowser().then(options => {
   globalScripts();
-  return bootstrapLazy([["new-todo",[[1,"new-todo",{"defaulttext":[1],"todo":[32]}]]]], options);
+  return bootstrapLazy([["new-todo",[[1,"new-todo",{"defaultText":[1,"default-text"],"todo":[32]}]]]], options);
 });

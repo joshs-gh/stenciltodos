@@ -17,7 +17,7 @@ const NewTodo = class {
     this.newTodo.emit(todo);
   }
   render() {
-    return (h("div", null, h("input", { type: "text", placeholder: this.defaulttext, onChange: this.inputChanged })));
+    return (h("div", null, h("input", { type: "text", placeholder: this.defaultText, onChange: this.inputChanged })));
   }
 };
 NewTodo.style = newTodoCss;

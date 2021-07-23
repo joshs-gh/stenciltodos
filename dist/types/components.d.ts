@@ -7,7 +7,7 @@
 import { HTMLStencilElement, JSXBase } from "./stencil-public-runtime";
 export namespace Components {
     interface NewTodo {
-        "defaulttext": string;
+        "defaultText": string;
     }
 }
 declare global {
@@ -23,7 +23,7 @@ declare global {
 }
 declare namespace LocalJSX {
     interface NewTodo {
-        "defaulttext"?: string;
+        "defaultText"?: string;
         "onNewTodo"?: (event: CustomEvent<String>) => void;
     }
     interface IntrinsicElements {
