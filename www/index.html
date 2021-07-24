@@ -1,1 +1,10 @@
-<!doctype html><html dir="ltr" lang="en"><head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"> <title>Stencil Component Starter</title> <link rel="modulepreload" href="/build/p-92cc8875.js"><script type="module" src="/build/p-92cc8875.js" data-stencil data-resources-url="/build/" data-stencil-namespace="todo"></script> <script nomodule="" src="/build/todo.js" data-stencil></script> </head> <body> <new-todo default-text="What needs to be done?"></new-todo> <todo-item todo-text="foo and bar"></todo-item> </body></html>
+<!doctype html><html dir="ltr" lang="en"><head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"> <title>Stencil Component Starter</title> <script type="module" src="/build/todo.esm.js" data-stencil></script> <script nomodule="" src="/build/todo.js" data-stencil></script> </head> <body> <todo-microapp> <new-todo default-text="What needs to be done?" slot="todo-input"></new-todo> <todo-item todo-text="foo and bar" slot="todo-list"></todo-item> </todo-microapp> <script>
+if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+  // auto-unregister service worker during dev mode
+  navigator.serviceWorker.getRegistration().then(function(registration) {
+  if (registration) {
+    registration.unregister().then(function() { location.reload(true) });
+  }
+  });
+}
+</script></body></html>

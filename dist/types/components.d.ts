@@ -5,12 +5,15 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "./stencil-public-runtime";
+import { TodoItem } from "./components/todo-item/todo-item";
 export namespace Components {
     interface NewTodo {
         "defaultText": string;
     }
     interface TodoItem {
         "todoText": string;
+    }
+    interface TodoMicroapp {
     }
 }
 declare global {
@@ -26,23 +29,33 @@ declare global {
         prototype: HTMLTodoItemElement;
         new (): HTMLTodoItemElement;
     };
+    interface HTMLTodoMicroappElement extends Components.TodoMicroapp, HTMLStencilElement {
+    }
+    var HTMLTodoMicroappElement: {
+        prototype: HTMLTodoMicroappElement;
+        new (): HTMLTodoMicroappElement;
+    };
     interface HTMLElementTagNameMap {
         "new-todo": HTMLNewTodoElement;
         "todo-item": HTMLTodoItemElement;
+        "todo-microapp": HTMLTodoMicroappElement;
     }
 }
 declare namespace LocalJSX {
     interface NewTodo {
         "defaultText"?: string;
-        "onNewTodo"?: (event: CustomEvent<String>) => void;
+        "onNewTodo"?: (event: CustomEvent<TodoItem>) => void;
     }
     interface TodoItem {
         "onDelClicked"?: (event: CustomEvent<MouseEvent>) => void;
         "todoText"?: string;
     }
+    interface TodoMicroapp {
+    }
     interface IntrinsicElements {
         "new-todo": NewTodo;
         "todo-item": TodoItem;
+        "todo-microapp": TodoMicroapp;
     }
 }
 export { LocalJSX as JSX };
@@ -51,6 +64,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "new-todo": LocalJSX.NewTodo & JSXBase.HTMLAttributes<HTMLNewTodoElement>;
             "todo-item": LocalJSX.TodoItem & JSXBase.HTMLAttributes<HTMLTodoItemElement>;
+            "todo-microapp": LocalJSX.TodoMicroapp & JSXBase.HTMLAttributes<HTMLTodoMicroappElement>;
         }
     }
 }

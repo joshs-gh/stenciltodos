@@ -1,10 +1,11 @@
-import { EventEmitter } from '../../stencil-public-runtime';
+import { EventEmitter } from "../../stencil-public-runtime";
+import { TodoItem } from "../todo-item/todo-item";
 export declare class NewTodo {
   defaultText: string;
-  todo: string;
+  todo: TodoItem;
   textInput: HTMLInputElement;
   private inputChanged;
-  newTodo: EventEmitter<String>;
-  newTodoHandler(todo: String): void;
+  newTodo: EventEmitter<TodoItem>;
+  newTodoHandler(todo: TodoItem): void;
   render(): any;
 }
